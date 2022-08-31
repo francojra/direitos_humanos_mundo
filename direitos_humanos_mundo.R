@@ -59,9 +59,13 @@ ggplot(dh1, aes(x = Year, y = direitos,
        color = "Países") +
   theme_minimal()
 
-ggplot(dh2, aes(x = Entity, y = media, fill = Entity)) +
+ggplot(dh2, aes(x = fct_reorder(Entity, media), 
+                y = media, fill = Entity)) +
   geom_col() +
   geom_errorbar(aes(x = Entity, y = media,
-                    ymin = media - se, ymax = media + se)) +
+                    ymin = media - se, ymax = media + se),
+                size = 0.8, width = 0.3) +
+  scale_fill_manual(values = as.vector(alphabet(n = 14))) +
+  labs(x = "Países", y = "Direitos humanos (pontuações)") +
   theme_minimal() +
   theme(legend.position = "none")
