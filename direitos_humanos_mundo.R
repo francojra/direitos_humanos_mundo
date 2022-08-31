@@ -26,4 +26,17 @@
 
 library(tidyverse)
 
+# Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
+dh <- read.csv("human-rights-protection.csv")
+view(dh)
+names(dh)
+
+dh1 <- dh %>%
+  select(-Code) %>%
+  rename(direitos = Human.rights.protection) %>%
+  filter(Entity %in% c("Angola", "Brazil", "China", "Russsia",
+                       "United States", "France", "Germany",
+                       "Ghana", "India", "Haiti", "Hungary", 
+                       "Iceland", "Israel", "Portugal", "Italy"))
+view(dh1)
