@@ -25,6 +25,7 @@
 # Carregar pacotes necessários -------------------------------------------------------------------------------------------------------------
 
 library(tidyverse)
+library(pals)
 
 # Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
@@ -50,4 +51,10 @@ dh2 <- dh1 %>%
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
-
+ggplot(dh1, aes(x = Year, y = direitos, 
+                group = Entity, color = Entity)) +
+  geom_line(size = 1.4) +
+  scale_color_manual(values = as.vector(alphabet(n = 14))) +
+  labs(x = "Tempo (anos)", y = "Direitos humanos (pontuações)",
+       color = "Países") +
+  theme_minimal()
