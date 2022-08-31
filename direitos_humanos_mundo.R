@@ -57,7 +57,9 @@ ggplot(dh1, aes(x = Year, y = direitos,
   scale_color_manual(values = as.vector(alphabet(n = 14))) +
   labs(x = "Tempo (anos)", y = "Direitos humanos (pontuações)",
        color = "Países") +
-  theme_minimal()
+  theme_minimal() +
+  theme(axis.title = element_text(size = 14),
+        axis.text = element_text(size = 11, colour = "black"))
 
 ggplot(dh2, aes(x = fct_reorder(Entity, media), 
                 y = media, fill = Entity)) +
@@ -68,4 +70,6 @@ ggplot(dh2, aes(x = fct_reorder(Entity, media),
   scale_fill_manual(values = as.vector(alphabet(n = 14))) +
   labs(x = "Países", y = "Direitos humanos (pontuações)") +
   theme_minimal() +
-  theme(legend.position = "none")
+  theme(legend.position = "none",
+        axis.title = element_text(size = 14),
+        axis.text = element_text(size = 11, colour = "black"))
