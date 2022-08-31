@@ -58,3 +58,10 @@ ggplot(dh1, aes(x = Year, y = direitos,
   labs(x = "Tempo (anos)", y = "Direitos humanos (pontuações)",
        color = "Países") +
   theme_minimal()
+
+ggplot(dh2, aes(x = Entity, y = media, fill = Entity)) +
+  geom_col() +
+  geom_errorbar(aes(x = Entity, y = media,
+                    ymin = media - se, ymax = media + se)) +
+  theme_minimal() +
+  theme(legend.position = "none")
