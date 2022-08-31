@@ -40,3 +40,14 @@ dh1 <- dh %>%
                        "Ghana", "India", "Haiti", "Hungary", 
                        "Iceland", "Israel", "Portugal", "Italy"))
 view(dh1)
+
+dh2 <- dh1 %>%
+  group_by(Entity) %>%
+  summarise(media = mean(direitos),
+            sd = sd(direitos), n = n(),
+            se = sd/sqrt(n)) %>%
+  view()
+
+# Gráficos ---------------------------------------------------------------------------------------------------------------------------------
+
+
